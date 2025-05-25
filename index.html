@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevConnect</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <h1>DevConnect</h1>
+  <form id="search-form">
+    <input type="text" id="username" placeholder="Enter GitHub username" />
+    <button type="submit">Search</button>
+  </form>
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode" class="dark-toggle-btn">🌞</button>
+</header>
+
+
+  <div id="loader" class="hidden"></div>
+
+  <main>
+    <section id="profile-section" class="card hidden"></section>
+
+    <aside>
+      <section id="favorites" class="card">
+        <div class="favorites-header">
+          <h3>Favorites</h3>
+          <button id="clear-favorites">Clear</button>
+        </div>
+        <ul id="favorites-list"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <section id="repos-section" class="card hidden">
+    <h3>Recent Repositories</h3>
+    <ul id="repos-list"></ul>
+  </section>
+
+  <footer>
+    <p>Built with ❤️ using GitHub API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
