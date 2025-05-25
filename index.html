@@ -4,44 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DevConnect</title>
+  <!-- Link to external stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header>
-  <h1>DevConnect</h1>
-  <form id="search-form">
-    <input type="text" id="username" placeholder="Enter GitHub username" />
-    <button type="submit">Search</button>
-  </form>
-  <button id="dark-mode-toggle" aria-label="Toggle dark mode" class="dark-toggle-btn">🌞</button>
-</header>
+  <header>
+    <!-- Main title of the app -->
+    <h1>DevConnect</h1>
+    
+    <!-- Search form to enter GitHub username -->
+    <form id="search-form">
+      <!-- Input box where users type GitHub usernames -->
+      <input type="text" id="username" placeholder="Enter GitHub username" />
+      <!-- Submit button for search -->
+      <button type="submit">Search</button>
+    </form>
 
+    <!-- Button to toggle dark mode; sun icon indicates it's currently light mode -->
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode" class="dark-toggle-btn">🌞</button>
+  </header>
 
+  <!-- Loader spinner, hidden by default, shows while fetching data -->
   <div id="loader" class="hidden"></div>
 
   <main>
+    <!-- Section where user profile info will be displayed -->
     <section id="profile-section" class="card hidden"></section>
 
     <aside>
+      <!-- Favorites sidebar to show saved favorite profiles -->
       <section id="favorites" class="card">
         <div class="favorites-header">
           <h3>Favorites</h3>
+          <!-- Button to clear all favorites -->
           <button id="clear-favorites">Clear</button>
         </div>
+        <!-- List of favorite GitHub users -->
         <ul id="favorites-list"></ul>
       </section>
     </aside>
   </main>
 
+  <!-- Section showing recent repositories of the searched user -->
   <section id="repos-section" class="card hidden">
     <h3>Recent Repositories</h3>
     <ul id="repos-list"></ul>
   </section>
 
   <footer>
+    <!-- Simple footer with a little love note -->
     <p>Built with ❤️ using GitHub API</p>
   </footer>
 
+  <!-- Link to external JavaScript file -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,9 +1,12 @@
-/* Base Reset */
+/* --- Base Reset --- */
+/* Reset default margin and padding on all elements, and use border-box sizing for easier layout */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* Body styles: nice clean font, soft background, smooth color transitions for dark mode */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9;
@@ -11,22 +14,29 @@ body {
   padding: 1rem;
   transition: background-color 0.3s, color 0.3s;
 }
+
+/* Headings get some space below to keep things airy */
 h1, h2, h3 {
   margin-bottom: 1rem;
 }
+
+/* Remove default bullets from all unordered lists */
 ul {
   list-style: none;
 }
 
-/* Header */
+/* --- Header Styling --- */
+/* Dark header bar with white text, nicely padded, and rounded corners */
 header {
   background: #24292e;
   color: white;
   padding: 1.5rem 1rem;
   text-align: center;
   border-radius: 8px;
-  position: relative;
+  position: relative; /* for positioning the dark mode toggle button */
 }
+
+/* The search form: flex layout to align input and button with some spacing, wrapping on small screens */
 form {
   display: flex;
   justify-content: center;
@@ -34,6 +44,8 @@ form {
   margin-top: 1rem;
   flex-wrap: wrap;
 }
+
+/* Text input: comfy padding, subtle border, rounded corners, fixed width */
 input[type="text"] {
   padding: 0.6rem;
   border: 1px solid #ccc;
@@ -41,6 +53,8 @@ input[type="text"] {
   font-size: 1rem;
   width: 250px;
 }
+
+/* Buttons: bright blue background, white text, rounded corners, pointer cursor, smooth color change on hover */
 button {
   padding: 0.6rem 1rem;
   background: #0366d6;
@@ -54,11 +68,13 @@ button:hover {
   background: #024caa;
 }
 
-/* Loader */
+/* --- Loader --- */
+/* Centered loader container with some spacing */
 #loader {
   text-align: center;
   margin: 1rem 0;
 }
+/* The spinner itself — a circle with a rotating top border */
 #loader::after {
   content: "";
   display: inline-block;
@@ -70,13 +86,15 @@ button:hover {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
+/* Keyframe for continuous spinning */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Layout */
+/* --- Layout --- */
+/* Main container: centered with max width, grid layout with two columns (profile and favorites), spaced nicely */
 main {
   max-width: 900px;
   margin: 2rem auto;
@@ -84,29 +102,37 @@ main {
   grid-template-columns: 2fr 1fr;
   gap: 1.5rem;
 }
+
+/* Card style: white background, padding, rounded corners, subtle shadow */
 .card {
   background: white;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
+/* Utility class to hide elements */
 .hidden {
   display: none;
 }
 
-/* Profile Section */
+/* --- Profile Section --- */
+/* Flex container for profile info with spacing */
 #profile-section {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
 }
+/* Profile picture styled as a circle and sized */
 #profile-section img {
   border-radius: 50%;
   width: 100px;
 }
+/* The info container flexes to fill available space */
 #profile-section div {
   flex: 1;
 }
+/* Button inside profile section: green background to stand out, margin on top for spacing */
 #profile-section button {
   margin-top: 0.5rem;
   background: #28a745;
@@ -115,28 +141,33 @@ main {
   background: #218838;
 }
 
-/* Repos */
+/* --- Repositories List --- */
+/* Each repo list item gets bottom margin and a subtle dividing line */
 #repos-list li {
   margin-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
   padding-bottom: 0.4rem;
 }
+/* Repo links: GitHub blue color, bold font, no underline by default */
 #repos-list a {
   color: #0366d6;
   text-decoration: none;
   font-weight: bold;
 }
+/* Underline the repo link on hover for clarity */
 #repos-list a:hover {
   text-decoration: underline;
 }
 
-/* Favorites */
+/* --- Favorites Section --- */
+/* Header for favorites section is flexbox with spaced title and clear button */
 .favorites-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
 }
+/* Each favorite item looks like a pill with light blue background and padding */
 #favorites-list li {
   background: #e1ecf4;
   padding: 0.4rem 0.6rem;
@@ -146,11 +177,13 @@ main {
   cursor: pointer;
   transition: background 0.2s;
 }
+/* Slightly darker blue on hover to indicate clickable */
 #favorites-list li:hover {
   background: #c9dff0;
 }
 
-/* Footer */
+/* --- Footer --- */
+/* Footer centered text with light background and rounded corners */
 footer {
   text-align: center;
   padding: 1rem;
@@ -159,27 +192,33 @@ footer {
   border-radius: 6px;
 }
 
-/* Dark Mode */
+/* --- Dark Mode Styles --- */
+/* Dark background and light text for body */
 body.dark {
   background: #121212;
   color: #f1f1f1;
 }
+/* Dark header and footer */
 body.dark header, body.dark footer {
   background: #1f1f1f;
   color: #f1f1f1;
 }
+/* Dark cards for profile, repos, favorites */
 body.dark .card {
   background: #1e1e1e;
   color: #f1f1f1;
 }
+/* Darker input fields with white text */
 body.dark input[type="text"] {
   background: #2d2d2d;
   color: white;
   border: 1px solid #555;
 }
+/* Dark mode buttons become muted gray */
 body.dark button {
   background: #444;
 }
+/* Favorites get darker backgrounds in dark mode */
 body.dark #favorites-list li {
   background: #2c3e50;
 }
@@ -187,7 +226,8 @@ body.dark #favorites-list li:hover {
   background: #34495e;
 }
 
-/* Dark Mode Toggle Button */
+/* --- Dark Mode Toggle Button --- */
+/* Positioned top-right of header, transparent background, bigger font size for easy click */
 .dark-toggle-btn {
   position: absolute;
   top: 1.5rem;
@@ -197,8 +237,9 @@ body.dark #favorites-list li:hover {
   font-size: 1.6rem;
   cursor: pointer;
   transition: transform 0.3s ease;
-  user-select: none;
+  user-select: none; /* prevent text selection on click */
 }
+/* Slight grow effect on hover to make it feel interactive */
 .dark-toggle-btn:hover {
   transform: scale(1.2);
 }
